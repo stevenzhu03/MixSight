@@ -1,11 +1,15 @@
 import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import Header from "./Header";
 
-const App = () => {
-  return (
-    <div>
-      <h1> Hi There </h1>
-    </div>
-  );
-};
+class App extends React.Component {
+  render() {
+    return (
+      <div className="container">
+        <Header />
+      </div>
+    );
+  }
+}
 
 export default App;
