@@ -5,6 +5,14 @@ const mongoose = require("mongoose");
 
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then((user) => done(null, user));
+});
+
 passport.use(
   new GoogleStrategy(
     {
@@ -13,9 +21,17 @@ passport.use(
       callbackURL: "/auth/google/callback",
     },
     (accessToken, refreshToken, profile, done) => {
-      new User({
-        googleID: profile.id,
-      }).save();
+      User.findOne({ googleID: profile.id }).then((existingUser) => {
+        console.log(existingUser);
+        if (existingUser) {
+          done(null, existingUser);
+        } else {
+          //   console.log(profile);
+          new User({ googleID: profile.id })
+            .save()
+            .then((user) => done(null, user));
+        }
+      });
     }
   )
 );
