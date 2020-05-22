@@ -10,11 +10,7 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return (
-          <li>
-            <GoogleLoginButon />
-          </li>
-        );
+        return <GoogleLoginButon />;
       default:
         return [
           <li key="1">
@@ -31,7 +27,6 @@ class Header extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <nav>
         <div>
