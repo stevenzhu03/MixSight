@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import GoogleLoginButon from "./GoogleLoginButton";
 // import { Link } from 'react-router-dom';
-// import Payments from "./Payments";
+import Payments from "./Payment";
 
 class Header extends Component {
   renderContent() {
@@ -11,18 +12,18 @@ class Header extends Component {
       case false:
         return (
           <li>
-            <a href="/auth/google">Login With Google</a>
+            <GoogleLoginButon />
           </li>
         );
       default:
         return [
-          // <li key="1">
-          //   <Payments />
-          // </li>,
-          // <li key="3" style={{ margin: '0 10px' }}>
-          //   Credits: {this.props.auth.credits}
-          // </li>,
-          <li>
+          <li key="1">
+            <Payments />
+          </li>,
+          <li key="3" style={{ margin: "0 10px" }}>
+            Credits: {this.props.auth.credits}
+          </li>,
+          <li key="2">
             <a href="/api/logout">Logout</a>
           </li>,
         ];
