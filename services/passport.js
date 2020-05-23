@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const User = mongoose.model("users");
 
+//user is what is pulled out of Mongo database
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
