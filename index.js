@@ -23,6 +23,7 @@ app.use(
   })
 );
 
+//initializes the passport middleware, middleware has access to req, res objects as well as the next
 app.use(passport.initialize());
 app.use(passport.session());
 

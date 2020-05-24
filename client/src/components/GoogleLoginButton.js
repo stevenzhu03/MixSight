@@ -51,7 +51,7 @@ const GoogleLoginButton = () => {
   const classes = useStyles({});
 
   return (
-    <a href={`http://localhost:3000/auth/google`} className={classes.button}>
+    <a href={`/auth/google`} className={classes.button}>
       <div className={classes.wrapper}>
         <svg
           className={classes.icon}
